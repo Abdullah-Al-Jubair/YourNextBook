@@ -4,12 +4,13 @@ const googlebookapi=axios.create({
     baseURL:"https://www.googleapis.com/books/v1",
 })
 
-const getBooksByTerm=(SearchTerm,setBooks,setTotalPages,pageNumber)=>{
+const getBooksByTerm=(SearchTerm,setBooks,setTotalPages,pageNumber,sortTerm)=>{
     googlebookapi.get("/volumes",{
         params:{
             q:SearchTerm,
             startIndex:pageNumber,
-            maxResults:5,
+            maxResults:12,
+            orderBy: sortTerm,
         }
     }).then((response)=>{
         setBooks(response.data.items)

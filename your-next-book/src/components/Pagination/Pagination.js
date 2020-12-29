@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import ReactPaginate from "react-paginate";
+import { Button } from 'reactstrap';
 
 const Pagination=(props)=>{
     const page_links = [];
@@ -12,9 +13,11 @@ const Pagination=(props)=>{
             isActive = "";
         }
 
-        let classes = "pagination__link--active a" + isActive;
+        let classes = "pagination__link--active " + isActive;
         page_links.push(
-            <button
+            <Button
+                outline color="danger"
+                size="sm"
                 className={classes}
                 key={i}
                 onClick={() => {
@@ -22,15 +25,11 @@ const Pagination=(props)=>{
                 }}
             >
                 {i}
-            </button>
+            </Button>
         );
     }
-
-
-
     return (
-
-            <div className="pagination">
+        <div className="container">
             <div className="row" >{page_links}
                 <ReactPaginate
                 previousLabel={"← Previous"}
@@ -40,13 +39,9 @@ const Pagination=(props)=>{
                 nextLinkClassName={"pagination__link"}
                 disabledClassName={"pagination__link--disabled"}
                 activeClassName={"pagination__link--active"}
-               
-
-
                 />
             </div>
         </div>
-
     );
 }
 

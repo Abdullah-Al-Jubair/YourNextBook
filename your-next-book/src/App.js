@@ -16,10 +16,11 @@ const App=()=>{
   const [books,setBooks]=useState([])
   const [currentPage,setCurrentPage]=useState(1)
   const [totalPages,setTotalPages]=useState(0)
+  const [sortTerm, setSortTerm] = useState('relevance');
 
   const handleSubmit=async(event)=>{
     event.preventDefault()
-    await getBooksByTerm(searchTerm,setBooks,setTotalPages,currentPage)
+    await getBooksByTerm(searchTerm,setBooks,setTotalPages,currentPage,sortTerm)
   }
 
   const handleChange=(event)=>{
@@ -35,7 +36,7 @@ const App=()=>{
   return(
       <div>
         <Navbar/>
-        <Searchbar handleChange={handleChange} handleSubmit={handleSubmit}/>
+        <Searchbar handleChange={handleChange} handleSubmit={handleSubmit} sorter={setSortTerm}/>
 
 
 

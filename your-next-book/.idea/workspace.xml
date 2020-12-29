@@ -28,7 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Zettflix" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../rivera" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -63,7 +63,8 @@
       <workItem from="1609182160124" duration="2352000" />
       <workItem from="1609184543311" duration="7000" />
       <workItem from="1609216917227" duration="8830000" />
-      <workItem from="1609226717916" duration="2211000" />
+      <workItem from="1609226717916" duration="5011000" />
+      <workItem from="1609233317342" duration="2800000" />
     </task>
     <servers />
   </component>
