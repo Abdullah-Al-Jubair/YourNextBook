@@ -18,4 +18,13 @@ const getBooksByTerm=(SearchTerm,setBooks,setTotalPages,pageNumber,sortTerm)=>{
     })
 }
 
-export {getBooksByTerm}
+const getBooksDetails = (BookId, SetCurrentBook) => {
+    googlebookapi.get("/volumes/" + BookId)
+        .then((response) => {
+            console.log(response.data);
+            SetCurrentBook(response.data);
+        });
+};
+
+
+export {getBooksByTerm,getBooksDetails}

@@ -9,6 +9,7 @@ import Pagination from "./components/Pagination/Pagination";
 
 
 
+
 const App=()=>{
 
 
@@ -35,14 +36,20 @@ const App=()=>{
 
   return(
       <div>
-        <Navbar/>
+
         <Searchbar handleChange={handleChange} handleSubmit={handleSubmit} sorter={setSortTerm}/>
 
-
-
-
         <Booklist books={books}/>
-        {totalPages>1?<Pagination nextPage={nextPage} currentPage={currentPage} totalPages={totalPages}/>:""}
+        <div></div>
+
+        {totalPages>1?
+            <Pagination
+                nextPage={nextPage}
+                currentPage={currentPage}
+                totalPages={totalPages}/>:""}
+
+
+
 
       </div>
   )

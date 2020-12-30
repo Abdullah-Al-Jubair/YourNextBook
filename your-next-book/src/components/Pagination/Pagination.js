@@ -27,20 +27,19 @@ const Pagination=(props)=>{
                 {i}
             </Button>
         );
+
     }
     return (
-        <div className="container">
-            <div className="row" >{page_links}
-                <ReactPaginate
-                previousLabel={"← Previous"}
-                nextLabel={"Next →"}
-                containerClassName={"pagination"}
-                previousLinkClassName={"pagination__link"}
-                nextLinkClassName={"pagination__link"}
-                disabledClassName={"pagination__link--disabled"}
-                activeClassName={"pagination__link--active"}
-                />
-            </div>
+
+        // <div className="pagination">
+        //     <div className="row" >{page_links}
+        //
+        //     </div>
+        // </div>
+
+        <div className="container" style={{position: 'absolute', left: '50%', right: '50%', textAlign:"center",
+            transform: 'translate(-50%, -50%)'}}>
+            <div className="row">{page_links}</div>
         </div>
     );
 }

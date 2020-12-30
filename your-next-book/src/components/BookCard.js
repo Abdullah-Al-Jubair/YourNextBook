@@ -1,38 +1,53 @@
 import React from "react";
+import {Card,CardImg} from "reactstrap";
+import { Link} from "react-router-dom";
 
-const Book=(props)=>{
-    return(
-        <div className="column">
-            <div className="col s16 m4">
-                <div className="card large" >
-                    <div className="card-image">
-                        {(props.data.volumeInfo.imageLinks == null) ?
-                            <img
-                                src="https://picsum.photos/200/300"
-                                alt=""
-                                style={{width:"100", height:"200"}
-                                }/> :
-                            <img
-                                src={props.data.volumeInfo.imageLinks.thumbnail}
-                                alt=""
-                                style={{width:"100",height:"200"}}
-                            />}
 
-                        <span className="card-title">{props.data.volumeInfo.title}</span>
-                    </div>
-                    <div className="card-content">
-                        <div>Author: {props.data.volumeInfo.authors}</div>
-                        <div>Genre: {props.data.volumeInfo.categories}</div>
-                        <div>Publisher: {props.data.volumeInfo.publisher}</div>
-                        <div>Published on: {props.data.volumeInfo.publishedDate}</div>
-                    </div>
-                    <div className="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
+
+const Book = (props) => {
+    let ImageURL;
+    if (props.data.volumeInfo.imageLinks == undefined) {
+        ImageURL = null;
+    } else {
+        ImageURL = props.data.volumeInfo.imageLinks.thumbnail;
+    }
+    return (
+
+        <div className="col s12 m3">
+            <div className="card large" >
+                <div>
+                    {ImageURL == null ? (
+                        <CardImg
+                            src="https://picsum.photos/200/300"
+                            alt=""
+                            style={{ width: "180px", height: "250px" }}
+                        />
+                    ) : (
+                        <img
+                            src={ImageURL}
+                            alt=""
+                            style={{ width: "180px", height: "250px" }}
+                        />
+                    )}
             </div>
-        </div>
-    )
-}
+                <div className="card-content">
+                    <p><b>{props.data.volumeInfo.title} </b></p>
+                    By {props.data.volumeInfo.authors}
 
-export default Book
+                </div>
+
+
+
+            <div className="card-action">
+                <Link to={{pathname:"/book/"+props.data.id, book_id:props.data.id}}
+                      style={{ color: `#008080` }}><p><b>Click here to see details</b></p></Link>
+            </div>
+
+            </div>
+
+        </div>
+
+    );
+};
+
+export default Book;

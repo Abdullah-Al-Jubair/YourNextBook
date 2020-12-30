@@ -1,12 +1,24 @@
 import React from "react";
-import {Button,ButtonGroup,InputGroup,InputGroupAddon,ButtonDropdown,ButtonToolbar
-,DropdownToggle,DropdownMenu,DropdownItem} from "reactstrap";
+import {Button,ButtonGroup} from "reactstrap";
 
 const Searchbar=(props)=>{
     return (
         <div className="container">
             <div className="row">
                 <section className="col s6 offset-s4">
+
+                    <form action="" onSubmit={props.handleSubmit}>
+                        <div className="input-field">
+                            <input placeholder="Search for your favorite books"
+                                   type="text"
+                                   onChange={props.handleChange}/>
+                                   . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                                <button className="waves-effect waves-light btn">Search</button>. . . . . . . . . . . . . . . . . . . . . . . . . .
+
+
+                        </div>
+                    </form>
+
                     <form action="" onSubmit={props.handleSubmit}>
 
                         <ButtonGroup className="Sorting-row">
@@ -20,7 +32,7 @@ const Searchbar=(props)=>{
                             <Button
                                 type='submit'
                                 onClick={() => {
-                                    props.sorter('oldest')
+                                    props.sorter('relevance')
                                 }}
                             >Oldest</Button>
                             <Button
@@ -31,16 +43,6 @@ const Searchbar=(props)=>{
                             >Most Relevant</Button>
                         </ButtonGroup>
 
-
-
-
-
-
-
-
-                        <div className="input-field">
-                            <input placeholder="Search for your favorite books" type="text" onChange={props.handleChange}/>
-                        </div>
                     </form>
                 </section>
             </div>
